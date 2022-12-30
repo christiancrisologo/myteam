@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  firstName String
+  lastName  String
+  position  String?
+  avatar    String?
+  team      String?
+  biography String?
+  height    String?
+  weight    String?
+  college   String?
+}
+
+model PlayerCard {
+  id                   String   @id @default(uuid())
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  profileId            String
+  cardTypeId           String
+  badges               String
+  height               String
+  Weight               String
+  shotClose            Int
+  shotMid              Int
+  shot3pt              Int
+  shotIq               Int
+  freethrow            Int
+  offensiveConsistency Int
+  speed                Int
+  acceleration         Int
+  vertical             Int
+  strength             Int
+  stamina              Int
+  hustle               Int
+  drivingLayup         Int
+  standingDunk         Int
+  drawFoul             Int
+  postMoves            Int
+  postHook             Int
+  postFade             Int
+  hands                Int
+  interiorDefense      Int
+  perimeterDefense     Int
+  helpDefenseIq        Int
+  literalQuickness     Int
+  passPerception       Int
+  steal                Int
+  block                Int
+  defensiveConsistency Int
+  speedWithBall        Int
+  ballHandle           Int
+  passingAccuracy      Int
+  passingVision        Int
+  passingIq            Int
+  offensiveRebound     Int
+  defensiveRebound     Int
+}
+
+model Card {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  type        String
+  version     String
+  rarity      String
+  label       String
+  description String
+}
+
+model Badge {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  name        String
+  description String
+  rarity      String
+  type        String
+}

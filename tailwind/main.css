@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .round-avatar-clip {
+        clip-path: circle(19px);
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
